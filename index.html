@@ -1,1 +1,280 @@
-My GitHub Page
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC
+    "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN"
+    "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg.dtd">
+<html xml:lang='en' xmlns:svg='http://www.w3.org/2000/svg' xmlns='http://www.w3.org/1999/xhtml'>
+<head><meta content='application/xhtml+xml;charset=utf-8' http-equiv='Content-type' /><title>databasedotcom gem guide</title><link href='./guide.css' rel='stylesheet' type='text/css' />
+</head>
+<body>
+<p><img alt='logo' src='logo.png' /></p>
+
+<h1 id='table_of_contents'>Table of Contents</h1>
+<div class='maruku_toc'><ul style='list-style: none;'><li><a href='#table_of_contents'>Table of Contents</a></li><li><a href='#introduction'>Introduction</a><ul style='list-style: none;'><li><a href='#intended_audience'>Intended Audience</a></li><li><a href='#first_off'>First off</a></li><li><a href='#what_is_databasecom'>What is database.com?</a></li><li><a href='#what_is_databasedotcom'>What is databasedotcom?</a></li><li><a href='#use_with_web_frameworks'>Use with web frameworks</a><ul style='list-style: none;'><li><a href='#using_with_sinatra'>Using with Sinatra</a></li><li><a href='#using_with_rails'>Using with Rails</a></li></ul></li></ul></li><li><a href='#kick_the_tires'>Kick the tires</a><ul style='list-style: none;'><li><a href='#install_ruby'>Install Ruby</a></li><li><a href='#install_databasedotcom_gem'>Install databasedotcom gem</a></li><li><a href='#create_a_databasecom_account'>Create a database.com account</a></li><li><a href='#connect_via_the_gem'>Connect via the gem</a></li><li><a href='#kick_the_tires'>Kick the Tires</a></li></ul></li><li><a href='#oauth_20_setup'>OAuth 2.0 Setup</a></li><li><a href='#finding_records_soql'>Finding Records (SOQL)</a></li><li><a href='#searching_for_records_sosl'>Searching for Records (SOSL)</a></li><li><a href='#sobject_crud'>SObject CRUD</a></li><li><a href='#building_forms'>Building Forms</a></li><li><a href='#chatter_specific'>Chatter Specific</a></li><li><a href='#step_by_step_example_heroku_sinatra_app'>Step by Step: Example Heroku Sinatra App</a><ul style='list-style: none;'><li><a href='#heroku_setup'>Heroku setup</a></li><li><a href='#stub_out_the_hello_world_app'>Stub out the Hello World app</a></li><li><a href='#deploy_it'>Deploy it</a></li><li><a href='#create_a_databasecom_account'>Create a database.com account</a></li><li><a href='#install_databasedotcom_and_sinatra_gems'>Install databasedotcom and Sinatra gems</a></li></ul></li><li><a href='#reference'>Reference</a></li></ul></div><hr />
+<h1 id='introduction'>Introduction</h1>
+
+<h2 id='intended_audience'>Intended Audience</h2>
+
+<p>Developers are the intended audience of this guide. If you&#8217;re not a developer, proceed with caution!</p>
+
+<h2 id='first_off'>First off</h2>
+
+<p><code>database.com != databasedotcom</code></p>
+
+<p>Confusing right? Basically, database.com is a service offered by salesforce.com, whereas databasedotcom is a Ruby gem that allows developers to connect to the database.com service.</p>
+
+<p>Here&#8217;s a more detailed explanation.</p>
+
+<h2 id='what_is_databasecom'>What is database.com?</h2>
+
+<p>From <a href='http://devcenter.database.com/page/FAQ#What_is_Database.com.3F' target='_blank'>http://devcenter.database.com/page/FAQ#What_is_Database.com.3F</a>:</p>
+
+<blockquote>
+<p>Database.com is the cloud database that integrates Salesforce.com&#8217;s Social Enterprise Platform. Whether you are building employee facing apps with Force.com, or customer facing apps with Heroku, Database.com is the cloud database that makes it easy to securely share data across multiple channels, build collaboration into every app, and connect employees and customers everywhere with mobile applications.</p>
+</blockquote>
+
+<h2 id='what_is_databasedotcom'>What is databasedotcom?</h2>
+
+<ul>
+<li>A Ruby wrapper for the Salesforce SObject and Chatter REST APIs</li>
+
+<li>A Ruby gem written originally written by Pivotal Labs / Danny Burkes</li>
+
+<li>Open and community maintained at <a href='https://github.com/heroku/databasedotcom' target='_blank'>https://github.com/heroku/databasedotcom</a></li>
+</ul>
+
+<h2 id='use_with_web_frameworks'>Use with web frameworks</h2>
+
+<p>TO-DO: highlight that the gem is independent of web frameworks</p>
+
+<h3 id='using_with_sinatra'>Using with Sinatra</h3>
+
+<h3 id='using_with_rails'>Using with Rails</h3>
+<hr />
+<h1 id='kick_the_tires'>Kick the tires</h1>
+
+<h2 id='install_ruby'>Install Ruby</h2>
+
+<p>See <a href='http://www.ruby-lang.org/en/downloads/'>http://www.ruby-lang.org/en/downloads/</a></p>
+
+<p>Helpful Tip: Install RVM while you&#8217;re at it.</p>
+
+<h2 id='install_databasedotcom_gem'>Install databasedotcom gem</h2>
+<pre class='terminal'>
+$ gem install databasedotcom
+</pre>
+<h2 id='create_a_databasecom_account'>Create a database.com account</h2>
+
+<ol>
+<li>
+<p>Go to <a href='http://www.database.com' target='_blank'>database.com</a></p>
+</li>
+
+<li>
+<p>Click Signup</p>
+</li>
+
+<li>
+<p>Fill in required fields (make note of the username you enter; will be referred to in subsequent steps as <strong>USERNAME</strong>)</p>
+</li>
+
+<li>
+<p>Click on link in the confirmation email you receive</p>
+</li>
+
+<li>
+<p>Set a new password and submit (will be referred to as <strong>PASSWORD</strong>)</p>
+</li>
+
+<li>
+<p>Go to Personal Setup | My Personal Information | Reset My Security Token</p>
+</li>
+
+<li>
+<p>Click button &#8220;Reset Security Token&#8221;</p>
+</li>
+
+<li>
+<p>Note the Security Token you receive via email (<strong>TOKEN</strong>)</p>
+</li>
+
+<li>
+<p>Go to App Setup | Develop | Remote Access | New</p>
+</li>
+
+<li>
+<p>Fill in the following required fields with dummy values (later we&#8217;ll update with real values):</p>
+
+<p><strong>Application</strong>: Test Local</p>
+
+<p><strong>Callback</strong>: https://localhost:5000</p>
+
+<p><strong>Contact Email</strong>: your email</p>
+</li>
+
+<li>
+<p>Note Consumer Secret and Key in the Authentication section. (<strong>CONSUMERSECRET</strong> and <strong>CONSUMERKEY</strong>)</p>
+</li>
+</ol>
+
+<h2 id='connect_via_the_gem'>Connect via the gem</h2>
+
+<p>Start an interactive Ruby shell: <pre class='terminal'>
+$ irb
+</pre></p>
+
+<p>Copy the following code to a local text editor and replace each {VARIABLE} with value from above. When finished replacing the values, copy and paste to your open irb session. <pre class='terminal'>
+require 'sinatra'
+require 'databasedotcom'
+client = Databasedotcom::Client.new :client_id => "{CONSUMERKEY}", :client_secret => "{CONSUMERSECRET}"
+client.authenticate :username => "{USERNAME}", :password => "{PASSWORD}{TOKEN}"
+</pre></p>
+
+<p>If you see something like the following, then something was incorrectly replaced above. <pre class='terminal'>
+Databasedotcom::SalesForceError: authentication failure - Invalid Password
+	from /Users/rvanhook/.rvm/gems/ruby-1.9.2-p290/gems/databasedotcom-1.0.8/lib/databasedotcom/client.rb:95:in 'authenticate'
+	from (irb):9
+	from /Users/rvanhook/.rvm/rubies/ruby-1.9.2-p290/bin/irb:16:in '&lt;main&gt;'
+</pre></p>
+
+<p>Hopefully you see something like the following. If so, <strong>congrats, you&#8217;ve connected</strong>!</p>
+<pre class='terminal'>
+=> "00DU0000000IKsX!AQQAQGHnlMeFKn_xAI3uhKEIvG9PKamngI.iokfwPQr6ugEXrxDzT_epMdhcSiF7M2eVWd3GiMfEHG0GIsZgNxLXZZoAZ9el" 
+</pre>
+<p>Now let&#8217;s do some fun stuff.</p>
+
+<h2 id='kick_the_tires'>Kick the Tires</h2>
+
+<p>Below are some code quick code snippets you can copy and paste into your irb session. This section is not intended to be an exhaustive guide of what the databasedotcom gem can do, rather its intention is to give you a feel for the databasedotcom gem.</p>
+<pre class='terminal'>
+# list all objects
+puts client.list_sobjects.sort.join "\n"
+</pre><pre class='terminal'>
+# load User object metadata
+# this will create a Class called User
+client.materialize('User')
+</pre><pre class='terminal'>
+# list methods now available for User
+puts User.methods.sort.join "\n"
+</pre><pre class='terminal'>
+# list attributes on User object
+puts User.attributes.sort.join "\n"
+</pre><pre class='terminal'>
+# load your user record via find
+# client.user_id returns the User record ID of the user credentials you supplied above
+me = User.find_by_id(client.user_id)
+puts "My name is #{me.FirstName} #{me.LastName}"
+</pre><pre class='terminal'>
+# reload via different find method
+me = User.find_by_Username(me.Username)
+puts "My name is still #{me.FirstName} #{me.LastName}"
+</pre><pre class='terminal'>
+# or load via old-school soql where clause
+# query returns an array
+me = User.query("id = '#{client.user_id}'")[0]
+puts "My name is still #{me.FirstName} #{me.LastName}"
+</pre><hr />
+<h1 id='oauth_20_setup'>OAuth 2.0 Setup</h1>
+
+<p>TO-DO: show setting up both consumer-secret flow and the user-pass flow</p>
+<hr />
+<h1 id='finding_records_soql'>Finding Records (SOQL)</h1>
+
+<p>TO-DO: document http://dreamforce-demo.heroku.com/slides#slide18</p>
+<hr />
+<h1 id='searching_for_records_sosl'>Searching for Records (SOSL)</h1>
+
+<p>TO-DO: document http://dreamforce-demo.heroku.com/slides#slide19</p>
+<hr />
+<h1 id='sobject_crud'>SObject CRUD</h1>
+
+<p>TO-DO: Document CRUD interaction http://dreamforce-demo.heroku.com/slides#slide15</p>
+<hr />
+<h1 id='building_forms'>Building Forms</h1>
+
+<p>TO-DO: show how to use label_for and picklist_values from http://dreamforce-demo.heroku.com/slides#slide17</p>
+<hr />
+<h1 id='chatter_specific'>Chatter Specific</h1>
+
+<p>TO-DO: show Chatter capabilities http://dreamforce-demo.heroku.com/slides#slide23</p>
+<hr />
+<h1 id='step_by_step_example_heroku_sinatra_app'>Step by Step: Example Heroku Sinatra App</h1>
+
+<p>TO-DO: show the steps required to create an integrated Salesforce/Heroku app which leverages OAuth web server flow and utilizes databasedotcom gem and Sinatra.</p>
+
+<p>This section outlines the steps necessary to build a Hello World app that connects to database.com using the databasedotcom gem. We&#8217;ll use Sinatra as our web framework (because it&#8217;s lightweight) and Heroku as our deployment environment (because it rocks).</p>
+
+<h2 id='heroku_setup'>Heroku setup</h2>
+
+<p>Complete the <strong><strong>Prerequisites</strong></strong> section of <a href='http://devcenter.heroku.com/articles/quickstart' target='_blank'>Getting Started with Heroku</a> if you haven&#8217;t already.</p>
+
+<h2 id='stub_out_the_hello_world_app'>Stub out the Hello World app</h2>
+<pre class='terminal'>
+$ mkdir helloworld
+$ cd helloworld
+</pre>
+<p>Create file <strong>config.ru</strong> with following contents:</p>
+<pre class='terminal'>
+require './hello_world'
+run Sinatra::Application
+</pre>
+<p>Create file <strong>Gemfile</strong> with following contents:</p>
+<pre class='terminal'>
+source 'http://rubygems.org'
+gem 'sinatra'
+gem 'databasedotcom'
+</pre>
+<h2 id='deploy_it'>Deploy it</h2>
+<pre class='terminal'>
+$ git init
+Initialized empty Git repository in /databasedotcom-guide/helloworld/.git/
+$ git add .
+$ git commit -m "Hello World!"
+git commit -m "Hello World"
+[master (root-commit) 3b745fb] Hello World
+ 2 files changed, 5 insertions(+), 0 deletions(-)
+ create mode 100644 Gemfile
+ create mode 100644 config.ru
+$ heroku create
+Creating simple-robot-846... done, stack is bamboo-mri-1.9.2
+http://simple-robot-846.heroku.com/ | git@heroku.com:simple-robot-846.git
+Git remote heroku added
+$ heroku addons:add ssl:piggyback
+</pre>
+<p>IMPORTANT: Note the name of your app; it will be referred to as <strong>HEROKUAPP</strong> in subsequent steps. In example above, the name of the app simple-robot-846.</p>
+
+<h2 id='create_a_databasecom_account'>Create a database.com account</h2>
+
+<ol>
+<li>Go to <a href='http://www.database.com' target='_blank'>database.com</a></li>
+
+<li>Click Signup</li>
+
+<li>Fill in required fields (make note of username; will be referred to in subsequent steps as <strong>USERNAME</strong>)</li>
+
+<li>Click on link in the confirmation email you receive</li>
+
+<li>Set a new password and submit (make note of password; will be referred to in subsequent steps as <strong>PASSWORD</strong>)</li>
+
+<li>Go to Personal Setup | My Personal Information | Reset My Security Token</li>
+
+<li>Click button &#8220;Reset Security Token&#8221;</li>
+
+<li>Note the Security Token you receive via email; will be referred to in subsequent steps as <strong>TOKEN</strong></li>
+
+<li>Go to App Setup | Develop | Remote Access | New</li>
+
+<li>Fill in the following: <strong>Application</strong>: Hello World <strong>Callback</strong>: https://<strong>{HEROKUAPP}</strong>.heroku.com/auth/salesforce/callback <strong>Contact Email</strong>: your email</li>
+
+<li>Note Consumer Secret and Key in the Authentication section.</li>
+</ol>
+
+<h2 id='install_databasedotcom_and_sinatra_gems'>Install databasedotcom and Sinatra gems</h2>
+<pre class='terminal'>
+$ bundle install
+</pre>
+<p>1. $ git init Initialized empty Git repository in .git/ $ git add . $ git commit -m &#8220;Hello world&#8221; Created initial commit 5df2d09: new app 44 files changed, 8393 insertions(+), 0 deletions(-)</p>
+<hr />
+<h1 id='reference'>Reference</h1>
+
+<p>TO-DO: Reference heavily back to the github projects, and highlight community involvement (duh).</p>
+</body></html>

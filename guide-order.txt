@@ -1,0 +1,15 @@
+# This file is to define the order of the markdown files that make up the guide.
+# Use this approach rather than than naming the files with 1_, 2_, and so on to force
+# a sort order.
+
+TOC.markdown
+Introduction.markdown
+KickTheTires.markdown
+OAuth2.markdown
+FindingRecords.markdown
+SearchingForRecords.markdown
+SObjectCRUD.markdown
+BuildingForms.markdown
+Chatter.markdown
+ExampleHerokuSinatraApp.markdown
+Reference.markdown

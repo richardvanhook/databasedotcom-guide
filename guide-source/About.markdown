@@ -1,5 +1,5 @@
-Introduction
-=============
+About this guide
+================
 
 Intended Audience
 ------------------

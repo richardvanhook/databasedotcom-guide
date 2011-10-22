@@ -1,0 +1,41 @@
+# This file is to define the order of the markdown files that make up the guide.
+# Use this approach rather than than naming the files with 1_, 2_, and so on to force
+# a sort order.
+#
+# Audience: Salesforce Admin or Developer who might or might not know Ruby but 
+# likely doesn't know anything about Sinatra, Heroku, or Git.
+#
+# Outline: 
+#  (1) Initial environment setup (Ruby, databasedotcom gem)
+#  (2) Progress through connecting from following environments:
+#      (a) local irb
+#      (b) local Sinatra app
+#      (c) app running on Heroku
+#      (d) convert from shared credentials to oauth
+#  (3) Build app using jquery mobile
+#  (4) Reference
+#      (a) Query
+#      (b) Search
+#      (c) CRUD
+#      (d) Forms
+#      (e) Chatter
+
+TOC.markdown
+
+About.markdown
+
+Tutorials.markdown
+
+Tutorial1-EnvironmentSetup.markdown
+Tutorial2-ConnectIRB.markdown
+Tutorial3-ConnectSinatra.markdown
+Tutorial4-ConnectHeroku.markdown
+Tutorial5-ConfigureOAuth2WebServerFlow.markdown
+
+Reference.markdown
+
+Reference-Query.markdown
+Reference-Search.markdown
+Reference-CRUD.markdown
+Reference-Forms.markdown
+Reference-Chatter.markdown

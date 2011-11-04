@@ -78,6 +78,7 @@ END_OF_STRING
     # Collect all the markdown files in the correct order and squash them together into one big string
     s = [] 
     File.new(GUIDE_SOURCE_DIR + "/guide-order.txt").each_line do |line|
+		puts '*** adding ' + line
       line.strip!
       next if line =~ /^#/   # Skip comments
       next if line =~ /^$/   # Skip blank lines

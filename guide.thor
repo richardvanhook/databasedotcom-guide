@@ -54,6 +54,7 @@ END_OF_STRING
   end
   
   def build_latex(doc)
+    puts '-----> latex is called.'
     File.open(OUTPUT_FILE_BASE_NAME + '.tex', 'w+') do |file|
       file << doc.to_latex_document
     end
@@ -61,7 +62,8 @@ END_OF_STRING
   
   def build_pdf(doc)
     build_latex(doc)
-    
+    puts '-----> pdf is called.'    
+
     Dir.chdir(GUIDE_DIR) do |dir|
       # Run twice to get cross-references right
       2.times { system("pdflatex #{OUTPUT_FILE_BASE_NAME + '.tex'} -output-directory=#{GUIDE_DIR}") }
@@ -78,6 +80,7 @@ END_OF_STRING
     # Collect all the markdown files in the correct order and squash them together into one big string
     s = [] 
     File.new(GUIDE_SOURCE_DIR + "/guide-order.txt").each_line do |line|
+		puts '*** adding ' + line
       line.strip!
       next if line =~ /^#/   # Skip comments
       next if line =~ /^$/   # Skip blank lines

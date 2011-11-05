@@ -1,5 +1,5 @@
-Step by Step: Example Heroku Sinatra App
-========================================
+Tutorial 4: Step by Step: Example Heroku Sinatra App
+----------------------------------------------------
 
 TO-DO: show the steps required to create an integrated Salesforce/Heroku app which leverages OAuth web server flow and utilizes databasedotcom gem and Sinatra.
 
@@ -89,5 +89,37 @@ $ bundle install
     $ git commit -m "Hello world"
     Created initial commit 5df2d09: new app
     44 files changed, 8393 insertions(+), 0 deletions(-)
-    
 
+"HelloWorld" Improved version
+-----------------------------
+<pre class="terminal">
+require 'sinatra'
+require ‘databasedotcom’
+
+# Still the old helloworld method
+get ‘/’ do
+    ‘hello world’
+end
+<b>
+# Initialization method
+def init
+    $client = Databasedotcom::Client.new(:client_id => "#{consumer_key}", :client_secret => “#{consumer_secret}”)
+    $client.authenticate(:username => “#{username}”, :password => “password + security_token”)
+
+    # Dynamic loading of the User object metadata
+    # this will create a Class called User in the current NameSpace / Module
+    $client.materialize("User")
+end
+
+# Say hello to you.
+get ‘/helloyou’ do
+ 	init()
+   me = User.find($client.user_id)
+   puts "My name is #{me.FirstName} #{me.LastName}. My Id is #{me.Id}."
+   "Hello #{me.FirstName} #{me.LastName}. My Id is #{me.Id}."
+end
+</b>
+</pre>
+
+You should see the following in your browser.<br/><br/>
+<b>Hello database master. My Id is #{some number}.</b>

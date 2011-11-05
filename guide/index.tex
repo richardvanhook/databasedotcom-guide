@@ -1,0 +1,245 @@
+\documentclass{article}
+
+% Packages required to support encoding
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+
+% Packages required by code
+
+
+% Packages always used
+\usepackage{hyperref}
+\usepackage{xspace}
+\usepackage[usenames,dvipsnames]{color}
+\hypersetup{colorlinks=true,urlcolor=blue}
+
+
+
+\begin{document} 
+
+
+\hypertarget{table_of_contents}{}\section*{{Table of Contents}}\label{table_of_contents}
+
+\noindent\hyperlink{table_of_contents}{Table of Contents}\dotfill \pageref*{table_of_contents} \linebreak
+\noindent\hyperlink{about_this_guide}{About this guide}\dotfill \pageref*{about_this_guide} \linebreak
+\noindent\hyperlink{intended_audience}{Intended Audience}\dotfill \pageref*{intended_audience} \linebreak
+\noindent\hyperlink{first_off}{First off}\dotfill \pageref*{first_off} \linebreak
+\noindent\hyperlink{what_is_databasecom}{What is database.com?}\dotfill \pageref*{what_is_databasecom} \linebreak
+\noindent\hyperlink{what_is_databasedotcom}{What is databasedotcom?}\dotfill \pageref*{what_is_databasedotcom} \linebreak
+\noindent\hyperlink{use_with_web_frameworks}{Use with web frameworks}\dotfill \pageref*{use_with_web_frameworks} \linebreak
+\noindent\hyperlink{using_with_sinatra}{Using with Sinatra}\dotfill \pageref*{using_with_sinatra} \linebreak
+\noindent\hyperlink{using_with_rails}{Using with Rails}\dotfill \pageref*{using_with_rails} \linebreak
+\noindent\hyperlink{tutorials}{Tutorials}\dotfill \pageref*{tutorials} \linebreak
+\noindent\hyperlink{tutorial_1_setup_your_environment}{Tutorial 1: Setup Your Environment}\dotfill \pageref*{tutorial_1_setup_your_environment} \linebreak
+\noindent\hyperlink{create_a_databasecom_account}{Create a database.com account}\dotfill \pageref*{create_a_databasecom_account} \linebreak
+\noindent\hyperlink{install_ruby}{Install Ruby}\dotfill \pageref*{install_ruby} \linebreak
+\noindent\hyperlink{install_databasedotcom_gem}{Install databasedotcom gem}\dotfill \pageref*{install_databasedotcom_gem} \linebreak
+\noindent\hyperlink{tutorial_4_step_by_step_example_heroku_sinatra_app}{Tutorial 4: Step by Step: Example Heroku Sinatra App}\dotfill \pageref*{tutorial_4_step_by_step_example_heroku_sinatra_app} \linebreak
+\noindent\hyperlink{heroku_setup}{Heroku setup}\dotfill \pageref*{heroku_setup} \linebreak
+\noindent\hyperlink{stub_out_the_hello_world_app}{Stub out the Hello World app}\dotfill \pageref*{stub_out_the_hello_world_app} \linebreak
+\noindent\hyperlink{deploy_it}{Deploy it}\dotfill \pageref*{deploy_it} \linebreak
+\noindent\hyperlink{create_a_databasecom_account}{Create a database.com account}\dotfill \pageref*{create_a_databasecom_account} \linebreak
+\noindent\hyperlink{install_databasedotcom_and_sinatra_gems}{Install databasedotcom and Sinatra gems}\dotfill \pageref*{install_databasedotcom_and_sinatra_gems} \linebreak
+\noindent\hyperlink{helloworld_improved_version}{``{}HelloWorld''{} Improved version}\dotfill \pageref*{helloworld_improved_version} \linebreak
+\noindent\hyperlink{tutorial_5_configuring_oauth_20_web_server_flow}{Tutorial 5: Configuring OAuth 2.0 Web Server Flow}\dotfill \pageref*{tutorial_5_configuring_oauth_20_web_server_flow} \linebreak
+\noindent\hyperlink{reference}{Reference}\dotfill \pageref*{reference} \linebreak
+\noindent\hyperlink{finding_records_soql}{Finding Records (SOQL)}\dotfill \pageref*{finding_records_soql} \linebreak
+\noindent\hyperlink{searching_for_records_sosl}{Searching for Records (SOSL)}\dotfill \pageref*{searching_for_records_sosl} \linebreak
+\noindent\hyperlink{sobject_crud}{SObject CRUD}\dotfill \pageref*{sobject_crud} \linebreak
+\noindent\hyperlink{building_forms}{Building Forms}\dotfill \pageref*{building_forms} \linebreak
+\noindent\hyperlink{chatter_specific}{Chatter Specific}\dotfill \pageref*{chatter_specific} \linebreak
+
+
+
+\vspace{.5em} \hrule \vspace{.5em}
+\hypertarget{about_this_guide}{}\section*{{About this guide}}\label{about_this_guide}
+
+\hypertarget{intended_audience}{}\subsection*{{Intended Audience}}\label{intended_audience}
+
+Developers are the intended audience of this guide. If you'{}re not a developer, proceed with caution!
+
+\hypertarget{first_off}{}\subsection*{{First off}}\label{first_off}
+
+{\colorbox[rgb]{1.00,0.93,1.00}{\tt \char100\char97\char116\char97\char98\char97\char115\char101\char46\char99\char111\char109\char32\char33\char61\char32\char100\char97\char116\char97\char98\char97\char115\char101\char100\char111\char116\char99\char111\char109}}
+
+Confusing right? Basically, database.com is a service offered by salesforce.com, whereas databasedotcom is a Ruby gem that allows developers to connect to the database.com service.
+
+Here'{}s a more detailed explanation.
+
+\hypertarget{what_is_databasecom}{}\subsection*{{What is database.com?}}\label{what_is_databasecom}
+
+From :
+
+\begin{quote}%
+Database.com is the cloud database that integrates Salesforce.com'{}s Social Enterprise Platform. Whether you are building employee facing apps with Force.com, or customer facing apps with Heroku, Database.com is the cloud database that makes it easy to securely share data across multiple channels, build collaboration into every app, and connect employees and customers everywhere with mobile applications.
+
+
+\end{quote}
+\hypertarget{what_is_databasedotcom}{}\subsection*{{What is databasedotcom?}}\label{what_is_databasedotcom}
+
+\begin{itemize}%
+\item A Ruby wrapper for the Salesforce SObject and Chatter REST APIs
+\item A Ruby gem written originally written by Pivotal Labs / Danny Burkes
+\item Open and community maintained at 
+
+\end{itemize}
+\hypertarget{use_with_web_frameworks}{}\subsection*{{Use with web frameworks}}\label{use_with_web_frameworks}
+
+TO-DO: highlight that the gem is independent of web frameworks
+
+\hypertarget{using_with_sinatra}{}\subsubsection*{{Using with Sinatra}}\label{using_with_sinatra}
+
+\hypertarget{using_with_rails}{}\subsubsection*{{Using with Rails}}\label{using_with_rails}
+
+
+\vspace{.5em} \hrule \vspace{.5em}
+\hypertarget{tutorials}{}\section*{{Tutorials}}\label{tutorials}
+
+
+\vspace{.5em} \hrule \vspace{.5em}
+\hypertarget{tutorial_1_setup_your_environment}{}\subsection*{{Tutorial 1: Setup Your Environment}}\label{tutorial_1_setup_your_environment}
+
+\hypertarget{create_a_databasecom_account}{}\subsubsection*{{Create a database.com account}}\label{create_a_databasecom_account}
+
+\begin{enumerate}%
+\item Go to 
+
+
+\item Click Signup
+
+
+\item Fill in required fields (make note of the username you enter; will be referred to in subsequent steps as \textbf{USERNAME})
+
+
+\item Click on link in the confirmation email you receive
+
+
+\item Set a new password and submit (will be referred to as \textbf{PASSWORD})
+
+
+\item Go to Personal Setup | My Personal Information | Reset My Security Token
+
+
+\item Click button ``{}Reset Security Token''{}
+
+
+\item Note the Security Token you receive via email (\textbf{TOKEN})
+
+
+\item Go to App Setup | Develop | Remote Access | New
+
+
+\item Fill in the following required fields with dummy values (later we'{}ll update with real values):
+
+\textbf{Application}: Test Local
+
+\textbf{Callback}: https://localhost:5000
+
+\textbf{Contact Email}: your email
+
+
+\item Note Consumer Secret and Key in the Authentication section. (\textbf{CONSUMERSECRET} and \textbf{CONSUMERKEY})
+
+
+
+\end{enumerate}
+\hypertarget{install_ruby}{}\subsubsection*{{Install Ruby}}\label{install_ruby}
+
+See \href{http://www.ruby-lang.org/en/downloads/}{http://www.ruby-lang.org/en/downloads/}
+
+\hypertarget{install_databasedotcom_gem}{}\subsubsection*{{Install databasedotcom gem}}\label{install_databasedotcom_gem}
+
+
+\vspace{.5em} \hrule \vspace{.5em}
+
+\vspace{.5em} \hrule \vspace{.5em}
+
+\vspace{.5em} \hrule \vspace{.5em}
+\hypertarget{tutorial_4_step_by_step_example_heroku_sinatra_app}{}\subsection*{{Tutorial 4: Step by Step: Example Heroku Sinatra App}}\label{tutorial_4_step_by_step_example_heroku_sinatra_app}
+
+TO-DO: show the steps required to create an integrated Salesforce/Heroku app which leverages OAuth web server flow and utilizes databasedotcom gem and Sinatra.
+
+This section outlines the steps necessary to build a Hello World app that connects to database.com using the databasedotcom gem. We'{}ll use Sinatra as our web framework (because it'{}s lightweight) and Heroku as our deployment environment (because it rocks).
+
+\hypertarget{heroku_setup}{}\subsection*{{Heroku setup}}\label{heroku_setup}
+
+Complete the \textbf{\textbf{Prerequisites}} section of  if you haven'{}t already.
+
+\hypertarget{stub_out_the_hello_world_app}{}\subsection*{{Stub out the Hello World app}}\label{stub_out_the_hello_world_app}
+
+Create file \textbf{config.ru} with following contents:
+
+Create file \textbf{Gemfile} with following contents:
+
+\hypertarget{deploy_it}{}\subsection*{{Deploy it}}\label{deploy_it}
+
+IMPORTANT: Note the name of your app; it will be referred to as \textbf{HEROKUAPP} in subsequent steps. In example above, the name of the app simple-robot-846.
+
+\hypertarget{create_a_databasecom_account}{}\subsection*{{Create a database.com account}}\label{create_a_databasecom_account}
+
+\begin{enumerate}%
+\item Go to 
+\item Click Signup
+\item Fill in required fields (make note of username; will be referred to in subsequent steps as \textbf{USERNAME})
+\item Click on link in the confirmation email you receive
+\item Set a new password and submit (make note of password; will be referred to in subsequent steps as \textbf{PASSWORD})
+\item Go to Personal Setup | My Personal Information | Reset My Security Token
+\item Click button ``{}Reset Security Token''{}
+\item Note the Security Token you receive via email; will be referred to in subsequent steps as \textbf{TOKEN}
+\item Go to App Setup | Develop | Remote Access | New
+\item Fill in the following: \textbf{Application}: Hello World \textbf{Callback}: https://\textbf{{HEROKUAPP}}.heroku.com/auth/salesforce/callback \textbf{Contact Email}: your email
+\item Note Consumer Secret and Key in the Authentication section.
+
+\end{enumerate}
+\hypertarget{install_databasedotcom_and_sinatra_gems}{}\subsection*{{Install databasedotcom and Sinatra gems}}\label{install_databasedotcom_and_sinatra_gems}
+
+1. $ git init Initialized empty Git repository in .git/ $ git add . $ git commit -m ``{}Hello world''{} Created initial commit 5df2d09: new app 44 files changed, 8393 insertions(+), 0 deletions(-)
+
+\hypertarget{helloworld_improved_version}{}\subsection*{{``{}HelloWorld''{} Improved version}}\label{helloworld_improved_version}
+
+You should see the following in your browser. 
+
+
+\vspace{.5em} \hrule \vspace{.5em}
+\hypertarget{tutorial_5_configuring_oauth_20_web_server_flow}{}\subsection*{{Tutorial 5: Configuring OAuth 2.0 Web Server Flow}}\label{tutorial_5_configuring_oauth_20_web_server_flow}
+
+TO-DO: show setting up both consumer-secret flow and the user-pass flow
+
+
+\vspace{.5em} \hrule \vspace{.5em}
+\hypertarget{reference}{}\section*{{Reference}}\label{reference}
+
+TO-DO: Reference heavily back to the github projects, and highlight community involvement (duh).
+
+
+\vspace{.5em} \hrule \vspace{.5em}
+\hypertarget{finding_records_soql}{}\subsection*{{Finding Records (SOQL)}}\label{finding_records_soql}
+
+TO-DO: document http://dreamforce-demo.heroku.com/slides#slide18
+
+
+\vspace{.5em} \hrule \vspace{.5em}
+\hypertarget{searching_for_records_sosl}{}\subsection*{{Searching for Records (SOSL)}}\label{searching_for_records_sosl}
+
+TO-DO: document http://dreamforce-demo.heroku.com/slides#slide19
+
+
+\vspace{.5em} \hrule \vspace{.5em}
+\hypertarget{sobject_crud}{}\subsection*{{SObject CRUD}}\label{sobject_crud}
+
+TO-DO: Document CRUD interaction http://dreamforce-demo.heroku.com/slides#slide15
+
+
+\vspace{.5em} \hrule \vspace{.5em}
+\hypertarget{building_forms}{}\subsection*{{Building Forms}}\label{building_forms}
+
+TO-DO: show how to use label_for and picklist_values from http://dreamforce-demo.heroku.com/slides#slide17
+
+
+\vspace{.5em} \hrule \vspace{.5em}
+\hypertarget{chatter_specific}{}\section*{{Chatter Specific}}\label{chatter_specific}
+
+TO-DO: show Chatter capabilities http://dreamforce-demo.heroku.com/slides#slide23
+
+
+\end{document}

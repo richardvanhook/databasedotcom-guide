@@ -92,7 +92,9 @@ $ bundle install
 
 "HelloWorld" Improved version
 -----------------------------
-<pre class="terminal">
+
+<div style="border: solid 1px black" >
+<pre>
 require 'sinatra'
 require ‘databasedotcom’
 
@@ -100,7 +102,7 @@ require ‘databasedotcom’
 get ‘/’ do
     ‘hello world’
 end
-<b>
+<b><font color="blue">
 # Initialization method
 def init
     $client = Databasedotcom::Client.new(:client_id => "#{consumer_key}", :client_secret => “#{consumer_secret}”)
@@ -116,10 +118,14 @@ get ‘/helloyou’ do
  	init()
    me = User.find($client.user_id)
    puts "My name is #{me.FirstName} #{me.LastName}. My Id is #{me.Id}."
-   "Hello #{me.FirstName} #{me.LastName}. My Id is #{me.Id}."
+   "Hello #{me.FirstName} #{me.LastName}. Your Object is #{me.Id}."
 end
+</font>
 </b>
 </pre>
+</div>
 
 You should see the following in your browser.<br/><br/>
-<b>Hello database master. My Id is #{some number}.</b>
+<div style="border: solid 1px black" >
+	Hello database master. Your Object Id is #{some number}.
+</div>
